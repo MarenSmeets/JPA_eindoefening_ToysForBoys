@@ -1,5 +1,7 @@
 package be.vdab.toysforboys.entities;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -22,6 +24,7 @@ public class Product {
     private String description;
     private int inStock;
     private int inOrder;
+    @NumberFormat(pattern = "0.0")
     private BigDecimal price;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -70,7 +73,7 @@ public class Product {
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return price.setScale(1);
     }
 
     public Productline getProductline() {

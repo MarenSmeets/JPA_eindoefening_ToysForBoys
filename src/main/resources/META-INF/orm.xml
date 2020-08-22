@@ -7,6 +7,7 @@ http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
         <query>
             select o from Order o
             where o.status not in ('SHIPPED','CANCELLED')
+            order by ordered
         </query>
     </named-query>
 </entity-mappings>

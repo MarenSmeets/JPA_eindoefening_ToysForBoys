@@ -29,6 +29,7 @@ public class Order {
     @JoinColumn(name = "customerId")
     private Customer customer;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Version
