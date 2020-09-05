@@ -4,6 +4,7 @@ import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 @Entity
@@ -73,7 +74,7 @@ public class Product {
     }
 
     public BigDecimal getPrice() {
-        return price.setScale(1);
+        return price.setScale(1, RoundingMode.HALF_UP);
     }
 
     public Productline getProductline() {
